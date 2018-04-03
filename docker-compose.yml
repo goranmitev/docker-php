@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  php:
+    build:
+      context: ./docker/php
+    volumes:
+      - ./:${VOLUME}
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "${LOCAL_HTTP_PORT}:80"
+    volumes:
+      - ./:${VOLUME}
+      - ./${NGNIX_LOG}:/var/log/nginx:rw
+    depends_on:
+      - php
