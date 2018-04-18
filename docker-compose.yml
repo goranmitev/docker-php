@@ -10,9 +10,10 @@ services:
       - ${HOST_VOLUME}:${VOLUME}
       - ${HOST_VOLUME}/${APACHE_LOG}:/var/log/apache2:rw
     depends_on:
-      - mysql   
+      - database
+      - redis
 
-  mysql:
+  database:
     image: mysql:5.7.21
     ports:
       - "${LOCAL_DB_PORT}:3306"
@@ -23,3 +24,6 @@ services:
       MYSQL_DATABASE: ${DB_DATABASE}
       MYSQL_USER: ${DB_USERNAME}
       MYSQL_PASSWORD: ${DB_PASSWORD}
+
+  redis:
+    image: redis:latest
