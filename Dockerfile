@@ -21,6 +21,8 @@ RUN a2enmod rewrite
 
 COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
 
+COPY xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
+
 # RUN set -ex \
 #   	&& apk update \
 #     && apk add --no-cache libpng-dev mariadb-client curl make g++ autoconf icu-dev zlib-dev \
