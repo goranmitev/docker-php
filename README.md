@@ -12,3 +12,7 @@ docker-compose up -d
 
 Stop working:
 docker-compose down --remove-orphans
+
+
+Run bash
+docker exec -it dockerphp_database_1 /bin/bash
