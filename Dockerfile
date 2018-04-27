@@ -5,7 +5,7 @@ RUN apt-get update && apt-get install -y \
     && pecl install xdebug \
     && pecl install redis \
     && docker-php-ext-enable redis xdebug \    
-    && docker-php-ext-install pdo_mysql zip gd
+    && docker-php-ext-install pdo_mysql zip gd pcntl
 
 RUN a2enmod rewrite
 
@@ -20,6 +20,8 @@ RUN a2enmod rewrite
 #     && docker-php-ext-install -j$(nproc) gd
 
 COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
+
+COPY php.ini /usr/local/etc/php/
 
 COPY xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
