@@ -28,3 +28,7 @@ docker rm $(docker ps -aq)
 
 Remove all images
 docker rmi $(docker images -q)
+
+
+Run composer
+docker run --rm --interactive --tty --volume ${PWD}:/app composer install --ignore-platform-reqs
