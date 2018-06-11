@@ -1,7 +1,7 @@
 FROM php:7.2-apache
 
 RUN apt-get update && apt-get install -y \
-    nodejs zlib1g-dev libpng-dev cron \
+    nodejs zlib1g-dev libpng-dev cron wget \
     && pecl install xdebug \
     && pecl install redis \
     && docker-php-ext-enable redis xdebug \    
