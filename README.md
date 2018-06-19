@@ -4,6 +4,7 @@
 
 Run migrations or refresh database:
 docker-compose exec -T application php artisan migrate
+docker-compose exec -T application php artisan migrate:fresh --seed
 docker-compose exec -T application php artisan migrate:refresh --seed
 
 
