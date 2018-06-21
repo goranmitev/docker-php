@@ -33,3 +33,11 @@ docker rmi $(docker images -q)
 
 Run composer
 docker run --rm --interactive --tty --volume ${PWD}:/app composer install --ignore-platform-reqs
+
+
+[Supervisor]
+List all processes
+sudo supervisorctl 
+
+We can double check this with the ps command:
+ps aux | grep php
