@@ -5,7 +5,7 @@ RUN apt-get update && apt-get install -y \
     && pecl install xdebug \
     && pecl install redis \
     && docker-php-ext-enable redis xdebug \
-    && docker-php-ext-install pdo_mysql zip gd pcntl
+    && docker-php-ext-install pdo_mysql zip gd pcntl bcmath calendar
 
 RUN a2enmod rewrite
 

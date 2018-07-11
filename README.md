@@ -4,6 +4,7 @@
 
 Run migrations or refresh database:
 docker-compose exec -T application php artisan migrate
+docker-compose exec -T application php artisan migrate:fresh --seed
 docker-compose exec -T application php artisan migrate:refresh --seed
 
 
@@ -32,3 +33,11 @@ docker rmi $(docker images -q)
 
 Run composer
 docker run --rm --interactive --tty --volume ${PWD}:/app composer install --ignore-platform-reqs
+
+
+[Supervisor]
+List all processes
+sudo supervisorctl 
+
+We can double check this with the ps command:
+ps aux | grep php
