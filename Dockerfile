@@ -1,22 +1,13 @@
 FROM php:7.2-apache
 
 RUN apt-get update && apt-get install -y \
-    nodejs zlib1g-dev libpng-dev cron wget \
+    nodejs zlib1g-dev libpng-dev wget zip \
     && pecl install xdebug \
     && pecl install redis \
-    && docker-php-ext-enable redis xdebug \    
+    && docker-php-ext-enable redis xdebug \
     && docker-php-ext-install pdo_mysql zip gd pcntl bcmath calendar
 
 RUN a2enmod rewrite
-
-# Add crontab file in the cron directory
-ADD crontab /etc/cron.d/cronjobs
-
-# Give execution rights on the cron job
-RUN chmod 0644 /etc/cron.d/cronjobs
-
-# Create the log file to be able to run tail
-RUN touch /var/log/cron.log
 
 # RUN apt-get update && apt-get install -y \
 #         libfreetype6-dev \
