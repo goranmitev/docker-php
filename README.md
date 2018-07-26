@@ -18,6 +18,9 @@ docker-compose down --remove-orphans
 Run bash
 docker exec -it dockerphp_database_1 /bin/bash
 
+Run bash On Git Bash
+winpty docker exec -it docker-php_database_1 //bin//bash
+
 List all containers (only IDs)
 docker ps -aq
 
