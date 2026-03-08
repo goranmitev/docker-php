@@ -1,0 +1,11 @@
+services:
+  app:
+    volumes:
+      - ./logs/apache2:/var/log/apache2:rw
+
+  db:
+    environment:
+      MYSQL_ROOT_PASSWORD: docker
+      MYSQL_DATABASE: docker
+      MYSQL_USER: docker
+      MYSQL_PASSWORD: docker

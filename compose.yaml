@@ -1,0 +1,21 @@
+services:
+  app:
+    build: .
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./:/var/www/html
+
+  db:
+    image: mysql:8.4.8
+    ports:
+      - "3306:3306"
+    volumes:
+      - app_data:/var/lib/mysql
+
+  redis:
+    image: redis:latest
+
+volumes:
+  app_data:
